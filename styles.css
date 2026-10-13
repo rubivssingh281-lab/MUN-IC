@@ -560,30 +560,62 @@ section {
 }
 
 .committee-card h4 {
-    font-size: 1.5rem;
+    font-size: 1.45rem;
+    line-height: 1.25;
+    margin-top: 0;
     margin-bottom: 0.25rem;
+    min-height: 2rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
 
 .committee-fullname {
-    font-size: 0.85rem;
+    font-size: 0.82rem;
     color: var(--gold-secondary);
-    margin-bottom: 1rem;
+    margin-top: 0;
+    margin-bottom: 0.85rem;
     font-style: italic;
+    min-height: 2.4rem;
+    display: flex;
+    align-items: flex-start;
+    justify-content: center;
+    text-align: center;
 }
 
 .committee-desc {
     color: var(--text-muted);
-    font-size: 0.9rem;
-    flex: 1;
-    margin-bottom: 2rem;
-    line-height: 1.6;
+    font-size: 0.88rem;
+    line-height: 1.55;
+    flex: 1 1 auto;
+    margin-top: 0;
+    margin-bottom: 1.5rem;
+    min-height: 4.5rem;
+    display: -webkit-box;
+    -webkit-line-clamp: 4;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+    text-align: center;
 }
 
 .card-actions {
+    margin-top: auto;
     display: flex;
     gap: 0.75rem;
     justify-content: center;
-    flex-wrap: wrap;
+    width: 100%;
+}
+
+.card-actions .btn {
+    flex: 1;
+    height: 40px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    padding: 0 0.75rem;
+    font-size: 0.78rem;
+    box-sizing: border-box;
 }
 
 /* Leadership Section (Founder, Secretary-General, Chief Advisor) */
@@ -716,9 +748,11 @@ section {
     background: var(--bg-card);
     border: 1px solid rgba(212, 175, 55, 0.2);
     border-radius: 18px;
-    padding: 2.25rem 2rem;
+    padding: 2rem 1.75rem 1.75rem;
     display: flex;
     flex-direction: column;
+    height: 100%;
+    box-sizing: border-box;
     position: relative;
     transition: var(--transition-smooth);
     backdrop-filter: blur(8px);
@@ -733,13 +767,16 @@ section {
 .resource-card-header {
     display: flex;
     justify-content: space-between;
-    align-items: flex-start;
+    align-items: center;
     margin-bottom: 1.25rem;
+    width: 100%;
+    height: 52px;
+    flex-shrink: 0;
 }
 
 .resource-icon {
-    width: 56px;
-    height: 56px;
+    width: 52px;
+    height: 52px;
     border-radius: 14px;
     background: rgba(212, 175, 55, 0.1);
     display: flex;
@@ -748,6 +785,7 @@ section {
     border: 1px solid rgba(212, 175, 55, 0.3);
     font-size: 1.85rem;
     color: var(--gold-primary);
+    flex-shrink: 0;
 }
 
 .resource-badge {
@@ -761,30 +799,62 @@ section {
     color: var(--gold-primary);
     border: 1px solid rgba(212, 175, 55, 0.3);
     font-family: var(--font-heading);
+    white-space: nowrap;
 }
 
 .resource-card h4 {
-    font-size: 1.35rem;
-    margin-bottom: 0.25rem;
+    font-size: 1.25rem;
+    line-height: 1.25;
+    margin-top: 0;
+    margin-bottom: 0.35rem;
+    min-height: 2.8rem;
+    display: flex;
+    align-items: flex-start;
 }
 
 .resource-subtitle {
     font-size: 0.82rem;
+    line-height: 1.3;
     color: var(--gold-secondary);
     font-style: italic;
-    margin-bottom: 0.85rem;
+    margin-top: 0;
+    margin-bottom: 0.75rem;
+    min-height: 1.8rem;
+    display: flex;
+    align-items: flex-start;
 }
 
-.resource-card p {
+.resource-desc,
+.resource-card p:not(.resource-subtitle) {
     color: var(--text-muted);
-    font-size: 0.9rem;
-    line-height: 1.6;
-    flex: 1;
-    margin-bottom: 1.75rem;
+    font-size: 0.88rem;
+    line-height: 1.55;
+    flex: 1 1 auto;
+    margin-top: 0;
+    margin-bottom: 1.25rem;
+    min-height: 4.8rem;
+    height: 4.8rem;
+    display: -webkit-box;
+    -webkit-line-clamp: 3;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
 }
 
 .resource-card .btn {
+    margin-top: auto;
     width: 100%;
+    height: 44px;
+    min-height: 44px;
+    max-height: 44px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    padding: 0 1rem;
+    font-size: 0.82rem;
+    letter-spacing: 0.75px;
+    box-sizing: border-box;
+    border-radius: 20px;
 }
 
 /* Modals & Dialogs */
@@ -1187,15 +1257,127 @@ section {
         font-size: 0.75rem;
     }
     
+@media (max-width: 768px) {
+    .container {
+        padding: 0 1rem;
+    }
+
+    section {
+        padding: 4.5rem 0;
+    }
+
+    .leadership-section, .resources-section {
+        padding: 4.5rem 0;
+    }
+
+    .section-header {
+        margin-bottom: 2.5rem;
+    }
+
+    .section-header h2 {
+        font-size: 2rem;
+    }
+
+    .section-header h3 {
+        font-size: 1.3rem;
+    }
+
+    .about-quote-box {
+        padding: 1.5rem 1.25rem;
+        margin: 1.75rem auto 1rem;
+    }
+
+    .about-statement {
+        font-size: 0.95rem;
+        line-height: 1.65;
+    }
+
+    /* Navbar */
+    .nav-links {
+        display: none;
+    }
+    
+    .nav-links.active {
+        display: flex;
+        flex-direction: column;
+        position: absolute;
+        top: 100%;
+        left: 0;
+        width: 100%;
+        background: rgba(4, 11, 22, 0.98);
+        backdrop-filter: blur(20px);
+        padding: 1.5rem 2rem;
+        border-bottom: 1px solid rgba(212, 175, 55, 0.3);
+        box-shadow: 0 15px 35px rgba(0, 0, 0, 0.8);
+        gap: 1.25rem;
+    }
+
+    .nav-links.active a {
+        font-size: 1.1rem;
+        padding: 0.5rem 0;
+        border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+    }
+    
+    .navbar .btn {
+        display: none;
+    }
+    
+    .mobile-menu-btn {
+        display: block;
+    }
+    
+    /* Hero */
+    .hero-content {
+        flex-direction: column;
+        text-align: center;
+        padding-top: 1.5rem;
+    }
+    
+    .hero-text {
+        max-width: 100%;
+    }
+    
+    .hero-meta-badges {
+        display: flex;
+        flex-direction: row;
+        justify-content: center;
+        gap: 0.5rem;
+        width: 100%;
+    }
+
+    .meta-badge {
+        flex: 1;
+        max-width: 190px;
+        padding: 0.45rem 0.65rem;
+        font-size: 0.72rem;
+        justify-content: center;
+        gap: 0.35rem;
+    }
+
+    .hero-actions {
+        display: flex;
+        flex-direction: row;
+        justify-content: center;
+        gap: 0.6rem;
+        width: 100%;
+    }
+
+    .hero-actions .btn {
+        flex: 1;
+        max-width: 200px;
+        padding: 0.65rem 0.85rem;
+        font-size: 0.75rem;
+    }
+    
     .hero-image {
         width: 320px;
     }
     
-    /* Conference Banner Stats - Side by Side */
+    /* Conference Banner Stats - Symmetric & Aligned */
     .conference-banner {
         flex-direction: column;
         text-align: center;
-        padding: 1.5rem;
+        padding: 1.5rem 1.25rem;
         gap: 1.5rem;
     }
     
@@ -1208,21 +1390,37 @@ section {
     }
 
     .stat-item {
+        display: flex;
         flex-direction: column;
+        align-items: center;
+        justify-content: center;
         text-align: center;
-        gap: 0.35rem;
+        padding: 0.75rem 0.35rem;
+        background: rgba(13, 26, 51, 0.5);
+        border: 1px solid rgba(212, 175, 55, 0.2);
+        border-radius: 12px;
+        min-height: 90px;
+        box-sizing: border-box;
     }
 
     .stat-item i {
-        font-size: 1.75rem;
+        font-size: 1.7rem;
+        color: var(--gold-primary);
+        margin-bottom: 0.3rem;
     }
 
     .stat-item span {
-        font-size: 0.72rem;
+        font-size: 0.7rem;
         line-height: 1.25;
+        font-weight: 600;
+        text-align: center;
+        min-height: 2.6em;
+        display: flex;
+        align-items: center;
+        justify-content: center;
     }
 
-    /* About Cards - Side by Side (2 columns) */
+    /* About Cards - Side by Side (2 columns) Symmetric */
     .about-cards {
         grid-template-columns: repeat(2, 1fr);
         gap: 0.85rem;
@@ -1236,25 +1434,44 @@ section {
     }
 
     .about-card {
-        padding: 1.35rem 0.85rem;
+        padding: 1.35rem 0.85rem 1.15rem;
+        display: flex;
+        flex-direction: column;
+        height: 100%;
+        box-sizing: border-box;
+        text-align: center;
     }
 
     .about-card .card-icon {
         font-size: 2rem;
-        margin-bottom: 0.5rem;
+        margin: 0 auto 0.5rem;
+        flex-shrink: 0;
     }
 
     .about-card h4 {
         font-size: 1.05rem;
+        min-height: 1.8rem;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        margin-top: 0;
         margin-bottom: 0.35rem;
     }
 
     .about-card p {
-        font-size: 0.78rem;
+        font-size: 0.74rem;
         line-height: 1.45;
+        margin-top: 0;
+        flex: 1 1 auto;
+        min-height: 5.8em;
+        height: 5.8em;
+        display: -webkit-box;
+        -webkit-line-clamp: 4;
+        -webkit-box-orient: vertical;
+        overflow: hidden;
     }
 
-    /* Leadership Profiles - Side by Side (2 columns) */
+    /* Leadership Profiles - Side by Side (2 columns) Symmetric */
     .leadership-grid {
         grid-template-columns: repeat(2, 1fr);
         gap: 0.85rem;
@@ -1268,13 +1485,19 @@ section {
     }
 
     .profile-card {
-        padding: 2.2rem 0.85rem 1.5rem;
+        padding: 2.2rem 0.85rem 1.25rem;
+        display: flex;
+        flex-direction: column;
+        height: 100%;
+        box-sizing: border-box;
+        text-align: center;
     }
 
     .profile-img {
-        width: 95px;
-        height: 95px;
-        margin-bottom: 0.85rem;
+        width: 85px;
+        height: 85px;
+        margin: 0 auto 0.75rem;
+        flex-shrink: 0;
     }
 
     .profile-badge {
@@ -1284,29 +1507,53 @@ section {
     }
 
     .profile-card h4 {
-        font-size: 1.1rem;
+        font-size: 1.05rem;
+        line-height: 1.2;
+        min-height: 2.4rem;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        margin-top: 0;
         margin-bottom: 0.2rem;
     }
 
     .profile-role {
-        font-size: 0.72rem;
+        font-size: 0.7rem;
         letter-spacing: 1px;
+        min-height: 1.5rem;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        margin-top: 0;
         margin-bottom: 0.5rem;
     }
 
     .profile-bio {
-        font-size: 0.76rem;
-        line-height: 1.4;
+        font-size: 0.74rem;
+        line-height: 1.45;
+        margin-top: 0;
+        flex: 1 1 auto;
+        min-height: 5.8em;
+        height: 5.8em;
+        display: -webkit-box;
+        -webkit-line-clamp: 4;
+        -webkit-box-orient: vertical;
+        overflow: hidden;
     }
 
-    /* 7 Committees - Side by Side (2 columns) */
+    /* 7 Committees - Side by Side (2 columns) Symmetric & Pinned Buttons */
     .committees-grid {
         grid-template-columns: repeat(2, 1fr);
         gap: 0.85rem;
     }
 
     .committee-card {
-        padding: 2.25rem 0.75rem 1.25rem;
+        padding: 2.25rem 0.75rem 1.15rem;
+        display: flex;
+        flex-direction: column;
+        height: 100%;
+        box-sizing: border-box;
+        text-align: center;
     }
 
     .committee-badge {
@@ -1317,42 +1564,75 @@ section {
     }
 
     .committee-icon {
-        width: 52px;
-        height: 52px;
-        margin-bottom: 0.75rem;
+        width: 50px;
+        height: 50px;
+        margin: 0 auto 0.65rem;
+        flex-shrink: 0;
     }
 
     .committee-icon i {
-        font-size: 1.6rem;
+        font-size: 1.5rem;
     }
 
     .committee-card h4 {
-        font-size: 1.15rem;
-        margin-bottom: 0.15rem;
+        font-size: 1.05rem;
+        line-height: 1.2;
+        min-height: 1.8rem;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        margin-top: 0;
+        margin-bottom: 0.2rem;
     }
 
     .committee-fullname {
-        font-size: 0.72rem;
+        font-size: 0.7rem;
+        line-height: 1.25;
+        min-height: 2.6rem;
+        display: flex;
+        align-items: flex-start;
+        justify-content: center;
+        margin-top: 0;
         margin-bottom: 0.5rem;
-        min-height: 2.2em;
+        text-align: center;
     }
 
     .committee-desc {
-        font-size: 0.76rem;
-        line-height: 1.4;
-        margin-bottom: 1rem;
+        font-size: 0.74rem;
+        line-height: 1.45;
+        margin-top: 0;
+        margin-bottom: 0.85rem;
+        flex: 1 1 auto;
+        min-height: 5.8em;
+        height: 5.8em;
+        display: -webkit-box;
+        -webkit-line-clamp: 4;
+        -webkit-box-orient: vertical;
+        overflow: hidden;
+        text-align: center;
     }
 
     .card-actions {
+        margin-top: auto;
+        width: 100%;
+        display: flex;
         flex-direction: column;
         gap: 0.4rem;
     }
 
     .card-actions .btn {
         width: 100%;
-        padding: 0.45rem 0.5rem;
+        height: 35px;
+        min-height: 35px;
+        max-height: 35px;
+        padding: 0 0.4rem;
         font-size: 0.7rem;
         letter-spacing: 0.5px;
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        box-sizing: border-box;
+        border-radius: 20px;
     }
 
     .committees-grid .committee-card:nth-child(7) {
@@ -1362,18 +1642,30 @@ section {
         width: 100%;
     }
 
-    /* 6 Resources - Side by Side (2 columns) */
+    /* 6 Resources - Side by Side (2 columns) Symmetric & Pinned Buttons */
     .resources-grid {
         grid-template-columns: repeat(2, 1fr);
         gap: 0.85rem;
     }
 
     .resource-card {
-        padding: 1.35rem 0.85rem;
+        padding: 1.35rem 0.85rem 1.15rem;
+        display: flex;
+        flex-direction: column;
+        height: 100%;
+        box-sizing: border-box;
+        text-align: left;
     }
 
     .resource-card-header {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        margin-top: 0;
         margin-bottom: 0.75rem;
+        width: 100%;
+        height: 44px;
+        flex-shrink: 0;
     }
 
     .resource-icon {
@@ -1381,33 +1673,70 @@ section {
         height: 44px;
         font-size: 1.35rem;
         border-radius: 10px;
+        flex-shrink: 0;
     }
 
     .resource-badge {
         font-size: 0.6rem;
-        padding: 0.15rem 0.45rem;
+        padding: 0.2rem 0.5rem;
+        white-space: nowrap;
     }
 
     .resource-card h4 {
-        font-size: 1.05rem;
-        margin-bottom: 0.15rem;
+        font-size: 0.95rem;
+        line-height: 1.22;
+        min-height: 3.4rem;
+        margin-top: 0;
+        margin-bottom: 0.35rem;
+        display: flex;
+        align-items: flex-start;
     }
 
     .resource-subtitle {
         font-size: 0.7rem;
+        line-height: 1.25;
+        color: var(--gold-secondary);
+        font-style: italic;
+        min-height: 2.1rem;
+        margin-top: 0;
         margin-bottom: 0.5rem;
+        display: flex;
+        align-items: flex-start;
     }
 
-    .resource-card p {
-        font-size: 0.76rem;
-        line-height: 1.4;
-        margin-bottom: 1rem;
+    .resource-desc,
+    .resource-card p:not(.resource-subtitle) {
+        font-size: 0.74rem;
+        line-height: 1.45;
+        color: var(--text-muted);
+        margin-top: 0;
+        margin-bottom: 0.85rem;
+        flex: 1 1 auto;
+        min-height: 5.8em;
+        height: 5.8em;
+        display: -webkit-box;
+        -webkit-line-clamp: 4;
+        -webkit-box-orient: vertical;
+        overflow: hidden;
     }
 
     .resource-card .btn {
-        padding: 0.45rem 0.5rem;
-        font-size: 0.72rem;
+        margin-top: auto;
         width: 100%;
+        height: 38px;
+        min-height: 38px;
+        max-height: 38px;
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        text-align: center;
+        padding: 0 0.35rem;
+        font-size: 0.72rem;
+        line-height: 1.15;
+        letter-spacing: 0.3px;
+        box-sizing: border-box;
+        border-radius: 20px;
+        white-space: normal;
     }
 
     /* Modals & Registration */
@@ -1452,11 +1781,11 @@ section {
     }
 
     .about-cards, .leadership-grid, .committees-grid, .resources-grid {
-        gap: 0.65rem;
+        gap: 0.55rem;
     }
 
     .about-card, .profile-card, .committee-card, .resource-card {
-        padding: 1.15rem 0.65rem 1rem;
+        padding: 1.15rem 0.65rem 0.9rem;
         border-radius: 14px;
     }
 
@@ -1477,9 +1806,27 @@ section {
         inset: -6px;
     }
 
+    .profile-card h4 {
+        font-size: 0.95rem;
+        min-height: 2.2rem;
+    }
+
+    .profile-role {
+        font-size: 0.65rem;
+        min-height: 1.4rem;
+    }
+
+    .profile-bio {
+        font-size: 0.7rem;
+        line-height: 1.4;
+        min-height: 5.6em;
+        height: 5.6em;
+    }
+
     .committee-icon {
         width: 44px;
         height: 44px;
+        margin-bottom: 0.5rem;
     }
 
     .committee-icon i {
@@ -1487,21 +1834,75 @@ section {
     }
 
     .committee-card h4 {
-        font-size: 1.05rem;
+        font-size: 0.95rem;
+        min-height: 1.6rem;
+    }
+
+    .committee-fullname {
+        font-size: 0.65rem;
+        min-height: 2.4rem;
     }
 
     .committee-desc {
-        display: -webkit-box;
-        -webkit-line-clamp: 4;
-        -webkit-box-orient: vertical;
-        overflow: hidden;
+        font-size: 0.7rem;
+        line-height: 1.4;
+        min-height: 5.6em;
+        height: 5.6em;
+        margin-bottom: 0.65rem;
     }
 
-    .resource-card p {
-        display: -webkit-box;
-        -webkit-line-clamp: 4;
-        -webkit-box-orient: vertical;
-        overflow: hidden;
+    .card-actions .btn {
+        height: 34px;
+        min-height: 34px;
+        max-height: 34px;
+        font-size: 0.66rem;
+    }
+
+    .resource-card-header {
+        height: 38px;
+        margin-bottom: 0.6rem;
+    }
+
+    .resource-icon {
+        width: 38px;
+        height: 38px;
+        font-size: 1.2rem;
+    }
+
+    .resource-badge {
+        font-size: 0.55rem;
+        padding: 0.15rem 0.4rem;
+    }
+
+    .resource-card h4 {
+        font-size: 0.9rem;
+        line-height: 1.2;
+        min-height: 3.2rem;
+        margin-bottom: 0.25rem;
+    }
+
+    .resource-subtitle {
+        font-size: 0.65rem;
+        line-height: 1.25;
+        min-height: 2rem;
+        margin-bottom: 0.45rem;
+    }
+
+    .resource-desc,
+    .resource-card p:not(.resource-subtitle) {
+        font-size: 0.7rem;
+        line-height: 1.4;
+        min-height: 5.6em;
+        height: 5.6em;
+        margin-bottom: 0.75rem;
+    }
+
+    .resource-card .btn {
+        height: 36px;
+        min-height: 36px;
+        max-height: 36px;
+        font-size: 0.68rem;
+        padding: 0 0.35rem;
     }
 
     .footer-content {
