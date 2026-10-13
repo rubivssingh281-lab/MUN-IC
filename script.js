@@ -48,6 +48,142 @@ document.addEventListener("DOMContentLoaded", () => {
         }
     });
 
+    // Mobile Menu Toggle
+    const mobileMenuBtn = document.querySelector('.mobile-menu-btn');
+    const navLinks = document.querySelector('.nav-links');
+    if (mobileMenuBtn && navLinks) {
+        mobileMenuBtn.addEventListener('click', () => {
+            navLinks.classList.toggle('active');
+            const icon = mobileMenuBtn.querySelector('i');
+            if (icon) {
+                if (navLinks.classList.contains('active')) {
+                    icon.className = 'ph ph-x';
+                } else {
+                    icon.className = 'ph ph-list';
+                }
+            }
+        });
+
+        // Close mobile nav when clicking a link
+        navLinks.querySelectorAll('a').forEach(link => {
+            link.addEventListener('click', () => {
+                navLinks.classList.remove('active');
+                const icon = mobileMenuBtn.querySelector('i');
+                if (icon) icon.className = 'ph ph-list';
+            });
+        });
+    }
+
+    // Toast Notification Utility
+    const toast = document.getElementById('toastNotification');
+    const toastMessage = document.getElementById('toastMessage');
+    function showToast(message) {
+        if (!toast) return;
+        if (toastMessage) toastMessage.textContent = message;
+        toast.classList.add('show');
+        setTimeout(() => {
+            toast.classList.remove('show');
+        }, 3500);
+    }
+
+    // Modal Handlers
+    const matrixModal = document.getElementById('matrixModal');
+    const brochureModal = document.getElementById('brochureModal');
+    const closeMatrixModal = document.getElementById('closeMatrixModal');
+    const closeBrochureModal = document.getElementById('closeBrochureModal');
+    const previewBrochureBtn = document.getElementById('previewBrochureBtn');
+    const downloadBrochureBtn = document.getElementById('downloadBrochureBtn');
+
+    function openModal(modal) {
+        if (modal) modal.classList.add('active');
+    }
+
+    function closeModal(modal) {
+        if (modal) modal.classList.remove('active');
+    }
+
+    // Matrix View Trigger
+    document.querySelectorAll('.view-matrix-btn').forEach(btn => {
+        btn.addEventListener('click', (e) => {
+            e.preventDefault();
+            openModal(matrixModal);
+        });
+    });
+
+    // Brochure View Trigger
+    document.querySelectorAll('.open-brochure-modal').forEach(btn => {
+        btn.addEventListener('click', (e) => {
+            e.preventDefault();
+            openModal(brochureModal);
+        });
+    });
+
+    // Modal Close Buttons
+    if (closeMatrixModal) closeMatrixModal.addEventListener('click', () => closeModal(matrixModal));
+    if (closeBrochureModal) closeBrochureModal.addEventListener('click', () => closeModal(brochureModal));
+    if (previewBrochureBtn) previewBrochureBtn.addEventListener('click', () => closeModal(brochureModal));
+
+    // Close on overlay click
+    [matrixModal, brochureModal].forEach(modal => {
+        if (modal) {
+            modal.addEventListener('click', (e) => {
+                if (e.target === modal) {
+                    closeModal(modal);
+                }
+            });
+        }
+    });
+
+    // Modal action button scroll to registration
+    document.querySelectorAll('.modal-action-btn').forEach(btn => {
+        btn.addEventListener('click', () => {
+            closeModal(matrixModal);
+        });
+    });
+
+    // Brochure Download Simulated Action
+    if (downloadBrochureBtn) {
+        downloadBrochureBtn.addEventListener('click', () => {
+            showToast("Downloading SAARTHI 2026 Brochure (PDF)...");
+            closeModal(brochureModal);
+        });
+    }
+
+    // Form Track Selection Shortcuts
+    const delTypeSelect = document.getElementById('delType');
+    const preferredCommitteeSelect = document.getElementById('preferredCommittee');
+
+    document.querySelectorAll('.select-form-track').forEach(btn => {
+        btn.addEventListener('click', function () {
+            const track = this.getAttribute('data-type');
+            if (delTypeSelect && track) {
+                delTypeSelect.value = track;
+            }
+        });
+    });
+
+    // Committee "Apply Now" buttons
+    document.querySelectorAll('.apply-del-btn').forEach(btn => {
+        btn.addEventListener('click', function () {
+            const comm = this.getAttribute('data-comm');
+            if (delTypeSelect) delTypeSelect.value = 'individual';
+            if (preferredCommitteeSelect && comm) {
+                preferredCommitteeSelect.value = comm;
+            }
+        });
+    });
+
+    // Registration Form Submit Handler
+    const registrationForm = document.getElementById('mainRegistrationForm');
+    if (registrationForm) {
+        registrationForm.addEventListener('submit', (e) => {
+            e.preventDefault();
+            const fullName = document.getElementById('fullName')?.value || 'Delegate';
+            showToast(`Thank you, ${fullName}! Your application has been recorded. Check your email for next steps.`);
+            registrationForm.reset();
+        });
+    }
+
     // Intersection Observer for scroll animations (fade-up)
     const observerOptions = {
         root: null,
@@ -65,7 +201,7 @@ document.addEventListener("DOMContentLoaded", () => {
     }, observerOptions);
 
     // Add fade-up class to elements and observe them
-    const elementsToAnimate = document.querySelectorAll('.card, .section-header, .conference-banner, .profile-card, .registration-container');
+    const elementsToAnimate = document.querySelectorAll('.card, .section-header, .conference-banner, .profile-card, .registration-container, .about-quote-box');
     elementsToAnimate.forEach(el => {
         el.classList.add('fade-up');
         observer.observe(el);
