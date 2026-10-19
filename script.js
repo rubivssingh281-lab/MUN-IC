@@ -134,6 +134,17 @@ document.addEventListener("DOMContentLoaded", () => {
         }
     });
 
+    // Close on Escape key press
+    document.addEventListener('keydown', (e) => {
+        if (e.key === 'Escape') {
+            [matrixModal, brochureModal].forEach(modal => {
+                if (modal && modal.classList.contains('active')) {
+                    closeModal(modal);
+                }
+            });
+        }
+    });
+
     // Modal action button scroll to registration
     document.querySelectorAll('.modal-action-btn').forEach(btn => {
         btn.addEventListener('click', () => {
