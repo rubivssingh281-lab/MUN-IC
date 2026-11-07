@@ -1,0 +1,22 @@
+{
+  "name": "saarthi-mun-2026",
+  "version": "2.0.0",
+  "description": "SAARTHI Model United Nations 2026 - Professional Frontend Architecture",
+  "main": "index.html",
+  "type": "module",
+  "scripts": {
+    "start": "npx serve . -l 3000",
+    "serve": "python3 -m http.server 3000"
+  },
+  "keywords": [
+    "mun",
+    "model-united-nations",
+    "saarthi",
+    "diplomacy",
+    "vanilla-js",
+    "component-architecture",
+    "frontend"
+  ],
+  "author": "SAARTHI Secretariat",
+  "license": "MIT"
+}
