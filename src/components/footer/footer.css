@@ -1,0 +1,85 @@
+/**
+ * Footer Component Styles
+ * SAARTHI Model United Nations 2026
+ */
+.footer {
+    border-top: 1px solid rgba(212, 175, 55, 0.2);
+    padding-top: 4rem;
+    position: relative;
+    background: transparent;
+}
+
+.footer-content {
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 3rem;
+    margin-bottom: 3rem;
+}
+
+.footer-links {
+    display: flex;
+    flex-direction: column;
+    gap: 0.75rem;
+}
+
+.footer-links a {
+    color: var(--text-muted);
+    text-decoration: none;
+    transition: var(--transition-smooth);
+    font-size: 0.95rem;
+}
+
+.footer-links a:hover {
+    color: var(--gold-primary);
+    padding-left: 5px;
+}
+
+.footer-contact p {
+    color: var(--text-muted);
+    margin-bottom: 0.5rem;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    font-size: 0.95rem;
+}
+
+.footer-socials {
+    display: flex;
+    gap: 1rem;
+}
+
+.footer-socials a {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    background: rgba(212, 175, 55, 0.1);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--gold-primary);
+    text-decoration: none;
+    font-size: 1.2rem;
+    transition: var(--transition-smooth);
+    border: 1px solid rgba(212, 175, 55, 0.3);
+}
+
+.footer-socials a:hover {
+    background: var(--gold-primary);
+    color: black;
+    transform: translateY(-3px);
+}
+
+.footer-bottom {
+    text-align: center;
+    padding: 1.5rem 0;
+    border-top: 1px solid rgba(255, 255, 255, 0.05);
+    color: var(--text-muted);
+    font-size: 0.9rem;
+}
+
+@media (max-width: 480px) {
+    .footer-content {
+        gap: 2rem;
+    }
+}

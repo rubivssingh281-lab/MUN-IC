@@ -1,0 +1,63 @@
+/**
+ * Loading Screen Component Styles
+ * SAARTHI Model United Nations 2026
+ */
+.loader {
+    position: fixed;
+    inset: 0;
+    background: var(--bg-dark);
+    z-index: 9999;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    -webkit-mask-image: linear-gradient(to bottom, black 0%, black 33.33%, transparent 66.66%, transparent 100%);
+    mask-image: linear-gradient(to bottom, black 0%, black 33.33%, transparent 66.66%, transparent 100%);
+    -webkit-mask-size: 100% 300%;
+    mask-size: 100% 300%;
+    -webkit-mask-position: 50% 0%;
+    mask-position: 50% 0%;
+    transition: transform 1.2s cubic-bezier(0.77, 0, 0.175, 1), -webkit-mask-position 1.2s cubic-bezier(0.77, 0, 0.175, 1), mask-position 1.2s cubic-bezier(0.77, 0, 0.175, 1);
+    overflow: hidden;
+}
+
+.loader-video {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    z-index: -2;
+    filter: brightness(1.15);
+}
+
+.loader-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(4, 11, 22, 0.35);
+    z-index: -1;
+}
+
+.loader.hidden {
+    transform: translateY(-100%);
+    -webkit-mask-position: 50% 100%;
+    mask-position: 50% 100%;
+}
+
+.loader-content {
+    text-align: center;
+    z-index: 1;
+    transform: translate(50px, -145px) scale(1.5);
+    opacity: 0;
+    animation: fadeSlideLeft 2s 3.5s forwards ease-out;
+}
+
+.loader-logo-img {
+    max-width: 90vw;
+    width: 500px;
+    height: auto;
+    object-fit: contain;
+}

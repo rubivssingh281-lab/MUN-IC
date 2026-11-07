@@ -1,0 +1,219 @@
+/**
+ * Resource Card Component Styles
+ * SAARTHI Model United Nations 2026
+ */
+.resources-section {
+    padding: 7rem 0;
+}
+
+.resources-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+    gap: 2rem;
+}
+
+.resource-card {
+    background: var(--bg-card);
+    border: 1px solid rgba(212, 175, 55, 0.2);
+    border-radius: 18px;
+    padding: 2rem 1.75rem 1.75rem;
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+    box-sizing: border-box;
+    position: relative;
+    transition: var(--transition-smooth);
+    backdrop-filter: blur(8px);
+}
+
+.resource-card:hover {
+    transform: translateY(-6px);
+    border-color: var(--gold-primary);
+    box-shadow: 0 12px 30px rgba(212, 175, 55, 0.15);
+}
+
+.resource-card-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 1.25rem;
+    width: 100%;
+    height: 52px;
+    flex-shrink: 0;
+}
+
+.resource-icon {
+    width: 52px;
+    height: 52px;
+    border-radius: 14px;
+    background: rgba(212, 175, 55, 0.1);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border: 1px solid rgba(212, 175, 55, 0.3);
+    font-size: 1.85rem;
+    color: var(--gold-primary);
+    flex-shrink: 0;
+}
+
+.resource-badge {
+    font-size: 0.7rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.8px;
+    padding: 0.25rem 0.75rem;
+    border-radius: 20px;
+    background: rgba(212, 175, 55, 0.12);
+    color: var(--gold-primary);
+    border: 1px solid rgba(212, 175, 55, 0.3);
+    font-family: var(--font-heading);
+    white-space: nowrap;
+}
+
+.resource-card h4 {
+    font-size: 1.25rem;
+    line-height: 1.25;
+    margin-top: 0;
+    margin-bottom: 0.35rem;
+    min-height: 2.8rem;
+    display: flex;
+    align-items: flex-start;
+}
+
+.resource-subtitle {
+    font-size: 0.82rem;
+    line-height: 1.3;
+    color: var(--gold-secondary);
+    font-style: italic;
+    margin-top: 0;
+    margin-bottom: 0.75rem;
+    min-height: 1.8rem;
+    display: flex;
+    align-items: flex-start;
+}
+
+.resource-desc,
+.resource-card p:not(.resource-subtitle) {
+    color: var(--text-muted);
+    font-size: 0.88rem;
+    line-height: 1.55;
+    flex: 1 1 auto;
+    margin-top: 0;
+    margin-bottom: 1.25rem;
+    min-height: 4.8rem;
+    height: 4.8rem;
+    display: -webkit-box;
+    -webkit-line-clamp: 3;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+}
+
+.resource-card .btn {
+    margin-top: auto;
+    width: 100%;
+    height: 44px;
+    min-height: 44px;
+    max-height: 44px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    padding: 0 1rem;
+    font-size: 0.82rem;
+    letter-spacing: 0.75px;
+    box-sizing: border-box;
+    border-radius: 20px;
+}
+
+@media (max-width: 768px) {
+    .resources-section {
+        padding: 4.5rem 0;
+    }
+
+    .resources-grid {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 0.85rem;
+    }
+
+    .resource-card {
+        padding: 1.35rem 0.85rem 1.15rem;
+    }
+
+    .resource-card-header {
+        height: 44px;
+        margin-bottom: 0.75rem;
+    }
+
+    .resource-icon {
+        width: 44px;
+        height: 44px;
+        font-size: 1.35rem;
+    }
+
+    .resource-badge {
+        font-size: 0.6rem;
+        padding: 0.2rem 0.5rem;
+    }
+
+    .resource-card h4 {
+        font-size: 0.95rem;
+        min-height: 3.4rem;
+    }
+
+    .resource-subtitle {
+        font-size: 0.7rem;
+        min-height: 2.1rem;
+    }
+
+    .resource-desc,
+    .resource-card p:not(.resource-subtitle) {
+        font-size: 0.74rem;
+        min-height: 5.8em;
+    }
+
+    .resource-card .btn {
+        height: 38px;
+        font-size: 0.72rem;
+    }
+}
+
+@media (max-width: 480px) {
+    .resources-grid {
+        gap: 0.55rem;
+    }
+
+    .resource-card {
+        padding: 1.15rem 0.65rem 0.9rem;
+    }
+
+    .resource-card-header {
+        height: 38px;
+        margin-bottom: 0.6rem;
+    }
+
+    .resource-icon {
+        width: 38px;
+        height: 38px;
+        font-size: 1.2rem;
+    }
+
+    .resource-card h4 {
+        font-size: 0.9rem;
+        min-height: 3.2rem;
+    }
+
+    .resource-subtitle {
+        font-size: 0.65rem;
+        min-height: 2rem;
+    }
+
+    .resource-desc {
+        font-size: 0.7rem;
+        min-height: 5.6em;
+    }
+
+    .resource-card .btn {
+        height: 36px;
+        font-size: 0.68rem;
+    }
+}

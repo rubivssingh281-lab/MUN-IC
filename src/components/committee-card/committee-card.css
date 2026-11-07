@@ -1,0 +1,217 @@
+/**
+ * Committee Card Component Styles
+ * SAARTHI Model United Nations 2026
+ */
+.committees-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 2rem;
+}
+
+.committee-card {
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    position: relative;
+    overflow: hidden;
+    padding-top: 2.5rem;
+    height: 100%;
+}
+
+.committee-badge {
+    position: absolute;
+    top: 15px;
+    right: 15px;
+    font-size: 0.68rem;
+    font-weight: 700;
+    font-family: var(--font-heading);
+    text-transform: uppercase;
+    letter-spacing: 0.8px;
+    padding: 0.2rem 0.65rem;
+    border-radius: 20px;
+    background: rgba(212, 175, 55, 0.15);
+    color: var(--gold-primary);
+    border: 1px solid rgba(212, 175, 55, 0.35);
+}
+
+.committee-badge.beginner {
+    background: rgba(34, 197, 94, 0.15);
+    color: #4ade80;
+    border-color: rgba(34, 197, 94, 0.4);
+}
+
+.committee-badge.special {
+    background: rgba(245, 158, 11, 0.15);
+    color: #fbbf24;
+    border-color: rgba(245, 158, 11, 0.4);
+}
+
+.committee-icon {
+    width: 75px;
+    height: 75px;
+    border-radius: 50%;
+    background: rgba(212, 175, 55, 0.1);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0 auto 1.5rem;
+    border: 1px solid rgba(212, 175, 55, 0.3);
+    transition: var(--transition-smooth);
+}
+
+.committee-card:hover .committee-icon {
+    transform: scale(1.1) rotate(5deg);
+    border-color: var(--gold-primary);
+    background: rgba(212, 175, 55, 0.2);
+}
+
+.committee-icon i {
+    font-size: 2.2rem;
+}
+
+.committee-card h4 {
+    font-size: 1.45rem;
+    line-height: 1.25;
+    margin-top: 0;
+    margin-bottom: 0.25rem;
+    min-height: 2rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.committee-fullname {
+    font-size: 0.82rem;
+    color: var(--gold-secondary);
+    margin-top: 0;
+    margin-bottom: 0.85rem;
+    font-style: italic;
+    min-height: 2.4rem;
+    display: flex;
+    align-items: flex-start;
+    justify-content: center;
+    text-align: center;
+}
+
+.committee-desc {
+    color: var(--text-muted);
+    font-size: 0.88rem;
+    line-height: 1.55;
+    flex: 1 1 auto;
+    margin-top: 0;
+    margin-bottom: 1.5rem;
+    min-height: 4.5rem;
+    display: -webkit-box;
+    -webkit-line-clamp: 4;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+    text-align: center;
+}
+
+.card-actions {
+    margin-top: auto;
+    display: flex;
+    gap: 0.75rem;
+    justify-content: center;
+    width: 100%;
+}
+
+.card-actions .btn {
+    flex: 1;
+    height: 40px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    padding: 0 0.75rem;
+    font-size: 0.78rem;
+    box-sizing: border-box;
+}
+
+@media (max-width: 768px) {
+    .committees-grid {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 0.85rem;
+    }
+
+    .committee-card {
+        padding: 2.25rem 0.75rem 1.15rem;
+    }
+
+    .committee-badge {
+        top: 8px;
+        right: 8px;
+        font-size: 0.58rem;
+        padding: 0.15rem 0.45rem;
+    }
+
+    .committee-icon {
+        width: 50px;
+        height: 50px;
+        margin: 0 auto 0.65rem;
+    }
+
+    .committee-icon i {
+        font-size: 1.5rem;
+    }
+
+    .committee-card h4 {
+        font-size: 1.05rem;
+        min-height: 1.8rem;
+    }
+
+    .committee-fullname {
+        font-size: 0.7rem;
+        min-height: 2.6rem;
+    }
+
+    .committee-desc {
+        font-size: 0.74rem;
+        min-height: 5.8em;
+    }
+
+    .card-actions {
+        flex-direction: column;
+        gap: 0.4rem;
+    }
+
+    .card-actions .btn {
+        height: 35px;
+        font-size: 0.7rem;
+    }
+
+    .committees-grid .committee-card:nth-child(7) {
+        grid-column: span 2;
+        max-width: 360px;
+        margin: 0 auto;
+        width: 100%;
+    }
+}
+
+@media (max-width: 480px) {
+    .committees-grid {
+        gap: 0.55rem;
+    }
+
+    .committee-card {
+        padding: 1.8rem 0.65rem 0.9rem;
+    }
+
+    .committee-icon {
+        width: 44px;
+        height: 44px;
+    }
+
+    .committee-icon i {
+        font-size: 1.35rem;
+    }
+
+    .committee-card h4 {
+        font-size: 0.95rem;
+    }
+
+    .card-actions .btn {
+        height: 34px;
+        font-size: 0.66rem;
+    }
+}

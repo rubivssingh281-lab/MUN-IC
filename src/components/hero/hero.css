@@ -1,0 +1,281 @@
+/**
+ * Hero Component Styles & Conference Banner
+ * SAARTHI Model United Nations 2026
+ */
+.hero-section {
+    min-height: 100vh;
+    padding-top: 120px;
+    display: flex;
+    flex-direction: column;
+    position: relative;
+}
+
+.hero-content {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex: 1;
+    gap: 2rem;
+    position: relative;
+    z-index: 2;
+}
+
+.hero-text {
+    flex: 1;
+    max-width: 600px;
+}
+
+.hero-title {
+    font-size: 3.5rem;
+    line-height: 1.1;
+    margin-bottom: 1rem;
+    text-shadow: 0 0 20px rgba(212, 175, 55, 0.2);
+}
+
+.hero-subtitle {
+    font-size: 1.2rem;
+    color: var(--text-main);
+    margin-bottom: 0.5rem;
+    letter-spacing: 2px;
+}
+
+.hero-meta-badges {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1rem;
+    margin-bottom: 1.5rem;
+}
+
+.meta-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.6rem;
+    padding: 0.55rem 1.25rem;
+    background: rgba(13, 26, 51, 0.8);
+    border: 1px solid rgba(212, 175, 55, 0.35);
+    border-radius: 30px;
+    font-size: 0.85rem;
+    font-family: var(--font-heading);
+    letter-spacing: 1px;
+    color: var(--text-main);
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+    backdrop-filter: blur(8px);
+    transition: var(--transition-smooth);
+}
+
+.meta-badge:hover {
+    border-color: var(--gold-primary);
+    box-shadow: 0 0 15px rgba(212, 175, 55, 0.25);
+    transform: translateY(-2px);
+}
+
+.meta-badge i {
+    font-size: 1.15rem;
+    color: var(--gold-primary);
+}
+
+.meta-badge strong {
+    color: var(--gold-primary);
+    margin-right: 0.25rem;
+}
+
+.hero-description {
+    color: var(--text-muted);
+    font-size: 1.1rem;
+    margin-bottom: 2.5rem;
+}
+
+.hero-actions {
+    display: flex;
+    gap: 1rem;
+}
+
+.hero-image-wrapper {
+    flex: 1;
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.hero-image {
+    max-width: 100%;
+    width: 500px;
+    border-radius: 20px;
+    mask-image: radial-gradient(circle, black 60%, transparent 100%);
+    -webkit-mask-image: radial-gradient(circle, black 60%, transparent 100%);
+    animation: float 6s ease-in-out infinite;
+}
+
+.hero-glow {
+    position: absolute;
+    width: 300px;
+    height: 300px;
+    background: radial-gradient(circle, rgba(212, 175, 55, 0.2) 0%, transparent 70%);
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    z-index: -1;
+    filter: blur(20px);
+}
+
+/* Conference Banner */
+.conference-banner {
+    background: var(--bg-surface);
+    border: 1px solid rgba(212, 175, 55, 0.3);
+    border-radius: 15px;
+    padding: 2rem;
+    margin-top: 3rem;
+    margin-bottom: -50px;
+    position: relative;
+    z-index: 10;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    align-items: center;
+    gap: 2rem;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+    backdrop-filter: blur(10px);
+}
+
+.banner-header {
+    flex: 1;
+    min-width: 300px;
+}
+
+.banner-header h3 {
+    font-size: 1.5rem;
+    margin-bottom: 0.5rem;
+}
+
+.banner-header p {
+    color: var(--text-muted);
+    font-size: 0.9rem;
+}
+
+.banner-stats {
+    display: flex;
+    gap: 2rem;
+    flex-wrap: wrap;
+}
+
+.stat-item {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+}
+
+.stat-item i {
+    font-size: 2.5rem;
+}
+
+.stat-item span {
+    font-size: 0.9rem;
+    font-weight: 600;
+    line-height: 1.2;
+}
+
+@media (max-width: 1024px) {
+    .hero-title {
+        font-size: 2.8rem;
+    }
+}
+
+@media (max-width: 768px) {
+    .hero-content {
+        flex-direction: column;
+        text-align: center;
+        padding-top: 1.5rem;
+    }
+    
+    .hero-text {
+        max-width: 100%;
+    }
+    
+    .hero-meta-badges {
+        display: flex;
+        flex-direction: row;
+        justify-content: center;
+        gap: 0.5rem;
+        width: 100%;
+    }
+
+    .meta-badge {
+        flex: 1;
+        max-width: 190px;
+        padding: 0.45rem 0.65rem;
+        font-size: 0.72rem;
+        justify-content: center;
+        gap: 0.35rem;
+    }
+
+    .hero-actions {
+        display: flex;
+        flex-direction: row;
+        justify-content: center;
+        gap: 0.6rem;
+        width: 100%;
+    }
+
+    .hero-actions .btn {
+        flex: 1;
+        max-width: 200px;
+        padding: 0.65rem 0.85rem;
+        font-size: 0.75rem;
+    }
+    
+    .hero-image {
+        width: 320px;
+    }
+    
+    .conference-banner {
+        flex-direction: column;
+        text-align: center;
+        padding: 1.5rem 1.25rem;
+        gap: 1.5rem;
+    }
+    
+    .banner-stats {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 0.5rem;
+        width: 100%;
+        justify-content: center;
+    }
+
+    .stat-item {
+        flex-direction: column;
+        padding: 0.75rem 0.35rem;
+        background: rgba(13, 26, 51, 0.5);
+        border: 1px solid rgba(212, 175, 55, 0.2);
+        border-radius: 12px;
+        min-height: 90px;
+    }
+
+    .stat-item i {
+        font-size: 1.7rem;
+        color: var(--gold-primary);
+        margin-bottom: 0.3rem;
+    }
+
+    .stat-item span {
+        font-size: 0.7rem;
+        line-height: 1.25;
+    }
+}
+
+@media (max-width: 480px) {
+    .hero-title {
+        font-size: 1.9rem;
+    }
+
+    .hero-subtitle {
+        font-size: 0.95rem;
+        letter-spacing: 1px;
+    }
+
+    .hero-actions .btn {
+        padding: 0.55rem 0.75rem;
+        font-size: 0.72rem;
+    }
+}
