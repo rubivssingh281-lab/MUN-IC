@@ -1,0 +1,245 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Resources & Application Portals | SAARTHI Model United Nations 2026</title>
+    <meta name="description" content="Access official conference documentation, brochure, country matrix, and application forms for SAARTHI 2026.">
+    <meta name="theme-color" content="#0d1117">
+
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600;700&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+
+    <!-- Phosphor Icons & Lenis -->
+    <script src="https://unpkg.com/@phosphor-icons/web"></script>
+    <script src="https://unpkg.com/@studio-freight/lenis@1.0.42/dist/lenis.min.js"></script>
+
+    <!-- Page Specific Stylesheet -->
+    <link rel="stylesheet" href="resources.css">
+</head>
+
+<body>
+    <!-- Navigation -->
+    <header class="navbar scrolled">
+        <div class="container">
+            <a href="../../index.html" class="logo">
+                <i class="ph ph-globe-hemisphere-east text-gold"></i>
+                <span>SAARTHI <span class="text-gold">2026</span></span>
+            </a>
+            <nav class="nav-links">
+                <a href="../../index.html">Home</a>
+                <a href="../about/index.html">About Us</a>
+                <a href="../leadership/index.html">Leadership</a>
+                <a href="../committees/index.html">Committees</a>
+                <a href="index.html" class="active">Resources</a>
+                <a href="../registration/index.html">Register</a>
+            </nav>
+            <a href="../registration/index.html" class="btn btn-primary">REGISTER NOW</a>
+
+            <button class="mobile-menu-btn" aria-label="Toggle navigation menu">
+                <i class="ph ph-list"></i>
+            </button>
+        </div>
+    </header>
+
+    <main>
+        <!-- Page Hero Banner -->
+        <section class="page-hero pattern-bg">
+            <div class="container">
+                <div class="breadcrumb">
+                    <a href="../../index.html">Home</a>
+                    <i class="ph ph-caret-right"></i>
+                    <span>Resources & Applications</span>
+                </div>
+                <h1 class="text-gold">RESOURCES & PORTALS</h1>
+                <p class="section-desc">Access official conference documentation, country allocations, and specialized application forms for SAARTHI 2026.</p>
+            </div>
+        </section>
+
+        <!-- Resources Grid Section -->
+        <section class="resources-section">
+            <div class="container">
+                <div class="resources-grid" id="resourcesGrid">
+                    <!-- Populated dynamically by ResourcesPage.js -->
+                </div>
+
+                <!-- FAQ Section -->
+                <div class="resources-faq">
+                    <div class="section-header">
+                        <h2 class="text-gold">FREQUENTLY ASKED QUESTIONS</h2>
+                        <p class="section-desc">Essential information for prospective delegates, faculty advisors, and applicants.</p>
+                    </div>
+
+                    <div class="faq-item">
+                        <h3 class="faq-question">What is the portfolio allotment procedure?</h3>
+                        <p class="faq-answer">Country and portfolio allocations are processed on a first-come, first-served basis following registration verification and past MUN experience assessment.</p>
+                    </div>
+
+                    <div class="faq-item">
+                        <h3 class="faq-question">Are beginner delegates supported?</h3>
+                        <p class="faq-answer">Yes, the World Health Organization (WHO) committee is specifically designated as beginner-friendly, featuring pre-conference webinars, dais mentorship, and guided Rules of Procedure (ROP).</p>
+                    </div>
+
+                    <div class="faq-item">
+                        <h3 class="faq-question">How can institutions register a group delegation?</h3>
+                        <p class="faq-answer">Use the School Delegation Form track to register contingents. An assigned Secretariat liaison coordinates portfolio requests directly with your institution's faculty advisor.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Country Matrix Modal -->
+        <div id="matrixModal" class="modal-overlay">
+            <div class="modal-container">
+                <div class="modal-header">
+                    <h3 class="text-gold"><i class="ph ph-table"></i> Country & Portfolio Matrix</h3>
+                    <button class="modal-close-btn" id="closeMatrixModal">&times;</button>
+                </div>
+                <div class="modal-body">
+                    <p style="color: var(--text-muted); font-size: 0.9rem; margin-bottom: 1rem;">
+                        Allocations for all 7 committees are updated in real-time.
+                    </p>
+                    <div class="matrix-table-wrapper">
+                        <table class="matrix-table">
+                            <thead>
+                                <tr>
+                                    <th>Committee</th>
+                                    <th>Key Portfolios / Countries</th>
+                                    <th>Experience Level</th>
+                                    <th>Status</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td><strong>UNGA</strong></td>
+                                    <td>USA, Russia, China, UK, France, India, Japan, Germany</td>
+                                    <td>All Levels</td>
+                                    <td><span class="status-tag filling">Filling Fast</span></td>
+                                </tr>
+                                <tr>
+                                    <td><strong>WHO</strong></td>
+                                    <td>Brazil, South Africa, Canada, Australia, Switzerland, Italy</td>
+                                    <td>Beginner Friendly</td>
+                                    <td><span class="status-tag open">Available</span></td>
+                                </tr>
+                                <tr>
+                                    <td><strong>AIPPM</strong></td>
+                                    <td>Prime Minister, Leader of Opposition, Key Union Ministers</td>
+                                    <td>Intermediate / Advanced</td>
+                                    <td><span class="status-tag filling">Filling Fast</span></td>
+                                </tr>
+                                <tr>
+                                    <td><strong>UNCSW</strong></td>
+                                    <td>Sweden, New Zealand, Rwanda, Mexico, Spain, UAE</td>
+                                    <td>All Levels</td>
+                                    <td><span class="status-tag open">Available</span></td>
+                                </tr>
+                                <tr>
+                                    <td><strong>UNHRC</strong></td>
+                                    <td>Norway, Argentina, Netherlands, Ghana, South Korea</td>
+                                    <td>All Levels</td>
+                                    <td><span class="status-tag open">Available</span></td>
+                                </tr>
+                                <tr>
+                                    <td><strong>MAHABHARATA</strong></td>
+                                    <td>Yudhishthira, Duryodhana, Bhishma, Karna, Vidura, Drona</td>
+                                    <td>Special Crisis / All</td>
+                                    <td><span class="status-tag filling">Limited Slots</span></td>
+                                </tr>
+                                <tr>
+                                    <td><strong>NATO</strong></td>
+                                    <td>USA, Turkey, Poland, UK, Germany, Estonia, Finland</td>
+                                    <td>Intermediate / Advanced</td>
+                                    <td><span class="status-tag open">Available</span></td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <div style="text-align: center; margin-top: 1.5rem;">
+                        <a href="../registration/index.html" class="btn btn-primary btn-sm modal-action-btn">Register for Matrix Portfolio</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Brochure Modal -->
+        <div id="brochureModal" class="modal-overlay">
+            <div class="modal-container" style="max-width: 600px; text-align: center;">
+                <div class="modal-header">
+                    <h3 class="text-gold"><i class="ph ph-file-pdf"></i> SAARTHI 2026 Brochure</h3>
+                    <button class="modal-close-btn" id="closeBrochureModal">&times;</button>
+                </div>
+                <div class="modal-body" style="padding: 1rem 0;">
+                    <i class="ph ph-book-open-text text-gold" style="font-size: 3.5rem; margin-bottom: 1rem; display: block;"></i>
+                    <h4 style="font-size: 1.3rem; margin-bottom: 0.5rem; color: #fff;">Official Conference Brochure</h4>
+                    <p style="color: var(--text-muted); font-size: 0.95rem; margin-bottom: 1.5rem;">
+                        Discover our 7 committees, conference itinerary, delegate preparation guides, code of conduct, and awards structure.
+                    </p>
+                    <div style="display: flex; gap: 1rem; justify-content: center; flex-wrap: wrap;">
+                        <button class="btn btn-primary" id="downloadBrochureBtn"><i class="ph ph-download-simple" style="margin-right: 0.5rem;"></i> Download Brochure (PDF)</button>
+                        <button class="btn btn-outline" id="previewBrochureBtn">Close</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Toast Notice -->
+        <div id="toastNotification" class="toast-notice">
+            <i class="ph ph-check-circle"></i>
+            <span id="toastMessage"></span>
+        </div>
+    </main>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-logo">
+                    <a href="../../index.html" class="logo">
+                        <i class="ph ph-globe-hemisphere-east text-gold"></i>
+                        <span>SAARTHI <span class="text-gold">2026</span></span>
+                    </a>
+                    <p style="color: var(--text-muted); font-size: 0.85rem; margin-top: 0.75rem; max-width: 280px;">
+                        Through diplomacy, debate, negotiation, and critical thinking, stepping into the responsibility of leadership.
+                    </p>
+                </div>
+
+                <div class="footer-links">
+                    <a href="../../index.html">Home</a>
+                    <a href="../about/index.html">About</a>
+                    <a href="../leadership/index.html">Leadership</a>
+                    <a href="../committees/index.html">Committees</a>
+                    <a href="index.html">Resources</a>
+                    <a href="../registration/index.html">Registration</a>
+                </div>
+
+                <div class="footer-contact">
+                    <h4 class="text-gold mb-2">Conference Details</h4>
+                    <p><i class="ph ph-calendar text-gold"></i> Date: To Be Announced</p>
+                    <p><i class="ph ph-map-pin text-gold"></i> Venue: To Be Announced</p>
+                    <p><i class="ph ph-envelope text-gold"></i> info@saarthi2026.com</p>
+                    <p><i class="ph ph-phone text-gold"></i> +91 98765 43210</p>
+                </div>
+
+                <div class="footer-socials">
+                    <a href="#" aria-label="Facebook"><i class="ph ph-facebook-logo"></i></a>
+                    <a href="#" aria-label="Twitter"><i class="ph ph-twitter-logo"></i></a>
+                    <a href="#" aria-label="Instagram"><i class="ph ph-instagram-logo"></i></a>
+                    <a href="#" aria-label="LinkedIn"><i class="ph ph-linkedin-logo"></i></a>
+                </div>
+            </div>
+
+            <div class="footer-bottom">
+                <p>&copy; 2026 SAARTHI Model United Nations. All Rights Reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Module Script -->
+    <script type="module" src="ResourcesPage.js"></script>
+</body>
+
+</html>

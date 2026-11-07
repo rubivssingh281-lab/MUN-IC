@@ -1,0 +1,42 @@
+/**
+ * Registration Page Specific Styles
+ * SAARTHI Model United Nations 2026
+ */
+@import '../../src/styles/main.css';
+
+.registration-page-section {
+    padding-top: 2rem;
+    padding-bottom: 6rem;
+}
+
+.registration-card-wrapper {
+    max-width: 680px;
+    margin: 0 auto;
+}
+
+.track-chips {
+    display: flex;
+    gap: 0.5rem;
+    flex-wrap: wrap;
+    margin-bottom: 2rem;
+    justify-content: center;
+}
+
+.track-chip {
+    padding: 0.5rem 1rem;
+    border-radius: 20px;
+    background: rgba(13, 26, 51, 0.7);
+    border: var(--border-gold-subtle);
+    color: var(--text-muted);
+    font-size: 0.8rem;
+    font-family: var(--font-heading);
+    cursor: pointer;
+    transition: var(--transition-smooth);
+}
+
+.track-chip:hover,
+.track-chip.active {
+    background: var(--gold-gradient);
+    color: #000;
+    border-color: var(--gold-primary);
+}
