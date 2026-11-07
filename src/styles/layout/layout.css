@@ -1,0 +1,121 @@
+/**
+ * Common Layouts, Patterns & Section Defaults
+ * SAARTHI Model United Nations 2026
+ */
+section {
+    padding: 7rem 0;
+    position: relative;
+}
+
+.section-header {
+    text-align: center;
+    margin-bottom: 4rem;
+    max-width: 800px;
+    margin-inline: auto;
+}
+
+.section-header h2 {
+    font-size: 2.5rem;
+    margin-bottom: 0.5rem;
+}
+
+.section-header h3 {
+    font-size: 1.8rem;
+    color: white;
+    margin-bottom: 1rem;
+    font-weight: 400;
+    font-style: italic;
+}
+
+.pattern-bg {
+    background-image: linear-gradient(to bottom, rgba(4, 11, 22, 0.8), rgba(4, 11, 22, 0.95)), url('../../assets/pattern.jpg'), url('../../../assets/pattern.jpg');
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed;
+}
+
+/* Page Banner / Hero for Subpages */
+.page-hero {
+    padding-top: 140px;
+    padding-bottom: 4rem;
+    text-align: center;
+    position: relative;
+    border-bottom: 1px solid rgba(212, 175, 55, 0.15);
+}
+
+.page-hero h1 {
+    font-size: 3rem;
+    margin-bottom: 1rem;
+}
+
+.page-hero .breadcrumb {
+    display: flex;
+    justify-content: center;
+    gap: 0.5rem;
+    align-items: center;
+    font-size: 0.85rem;
+    color: var(--text-muted);
+    font-family: var(--font-heading);
+    margin-bottom: 1.5rem;
+}
+
+.page-hero .breadcrumb a {
+    color: var(--gold-primary);
+    text-decoration: none;
+    transition: var(--transition-smooth);
+}
+
+.page-hero .breadcrumb a:hover {
+    text-decoration: underline;
+}
+
+@media (max-width: 1024px) {
+    section {
+        padding: 5.5rem 0;
+    }
+}
+
+@media (max-width: 768px) {
+    .container {
+        padding: 0 1rem;
+    }
+
+    section {
+        padding: 4.5rem 0;
+    }
+
+    .section-header {
+        margin-bottom: 2.5rem;
+    }
+
+    .section-header h2 {
+        font-size: 2rem;
+    }
+
+    .section-header h3 {
+        font-size: 1.3rem;
+    }
+
+    .page-hero {
+        padding-top: 110px;
+        padding-bottom: 3rem;
+    }
+
+    .page-hero h1 {
+        font-size: 2.2rem;
+    }
+}
+
+@media (max-width: 480px) {
+    .container {
+        padding: 0 0.75rem;
+    }
+
+    .section-header h2 {
+        font-size: 1.7rem;
+    }
+
+    .page-hero h1 {
+        font-size: 1.8rem;
+    }
+}

@@ -1,0 +1,45 @@
+/**
+ * Animation Keyframes & Reveal Rules
+ * SAARTHI Model United Nations 2026
+ */
+.fade-up {
+    opacity: 0;
+    transform: translateY(30px);
+    transition: opacity 0.8s ease-out, transform 0.8s ease-out;
+    will-change: opacity, transform;
+}
+
+.fade-up.visible {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+@keyframes float {
+    0% { transform: translateY(0px); }
+    50% { transform: translateY(-15px); }
+    100% { transform: translateY(0px); }
+}
+
+@keyframes spin {
+    100% { transform: rotate(360deg); }
+}
+
+@keyframes pulse {
+    0%, 100% { opacity: 1; }
+    50% { opacity: 0.8; }
+}
+
+@keyframes fadeSlideLeft {
+    0% {
+        opacity: 0;
+        transform: translate(50px, -145px) scale(1.5);
+    }
+    60% {
+        opacity: 1;
+        transform: translate(0, -145px) scale(1.5);
+    }
+    100% {
+        opacity: 1;
+        transform: translate(0, -145px) scale(1.5);
+    }
+}
