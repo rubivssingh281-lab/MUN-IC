@@ -1,23 +1,40 @@
 /**
  * Loading Screen Component Styles
  * SAARTHI Model United Nations 2026
+ *
+ * Fully optimized for low-end mobile devices with zero mask-image overhead,
+ * instant hardware layer compositing, and tap-to-skip.
  */
 .loader {
     position: fixed;
     inset: 0;
-    background: var(--bg-dark);
+    background: #040b16;
     z-index: 9999;
     display: flex;
     justify-content: center;
     align-items: center;
-    -webkit-mask-image: linear-gradient(to bottom, black 0%, black 33.33%, transparent 66.66%, transparent 100%);
-    mask-image: linear-gradient(to bottom, black 0%, black 33.33%, transparent 66.66%, transparent 100%);
-    -webkit-mask-size: 100% 300%;
-    mask-size: 100% 300%;
-    -webkit-mask-position: 50% 0%;
-    mask-position: 50% 0%;
-    transition: transform 1.2s cubic-bezier(0.77, 0, 0.175, 1), -webkit-mask-position 1.2s cubic-bezier(0.77, 0, 0.175, 1), mask-position 1.2s cubic-bezier(0.77, 0, 0.175, 1);
     overflow: hidden;
+    transition: opacity 0.35s ease, transform 0.4s cubic-bezier(0.77, 0, 0.175, 1);
+    will-change: opacity, transform;
+}
+
+/* Desktop subtle gradient mask */
+@media (min-width: 769px) {
+    .loader {
+        -webkit-mask-image: linear-gradient(to bottom, black 0%, black 33.33%, transparent 66.66%, transparent 100%);
+        mask-image: linear-gradient(to bottom, black 0%, black 33.33%, transparent 66.66%, transparent 100%);
+        -webkit-mask-size: 100% 300%;
+        mask-size: 100% 300%;
+        -webkit-mask-position: 50% 0%;
+        mask-position: 50% 0%;
+        transition: transform 0.8s cubic-bezier(0.77, 0, 0.175, 1), -webkit-mask-position 0.8s cubic-bezier(0.77, 0, 0.175, 1), mask-position 0.8s cubic-bezier(0.77, 0, 0.175, 1);
+    }
+
+    .loader.hidden {
+        transform: translateY(-100%);
+        -webkit-mask-position: 50% 100%;
+        mask-position: 50% 100%;
+    }
 }
 
 .loader-video {
@@ -28,7 +45,7 @@
     height: 100%;
     object-fit: cover;
     z-index: -2;
-    filter: brightness(1.15);
+    filter: brightness(1.1);
 }
 
 .loader-overlay {
@@ -37,27 +54,98 @@
     left: 0;
     width: 100%;
     height: 100%;
-    background: rgba(4, 11, 22, 0.35);
+    background: rgba(4, 11, 22, 0.45);
     z-index: -1;
 }
 
 .loader.hidden {
+    opacity: 0;
     transform: translateY(-100%);
-    -webkit-mask-position: 50% 100%;
-    mask-position: 50% 100%;
+    pointer-events: none;
 }
 
 .loader-content {
     text-align: center;
     z-index: 1;
-    transform: translate(50px, -145px) scale(1.5);
-    opacity: 0;
-    animation: fadeSlideLeft 2s 3.5s forwards ease-out;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 1.5rem;
 }
 
 .loader-logo-img {
-    max-width: 90vw;
-    width: 500px;
+    max-width: 80vw;
+    width: 420px;
     height: auto;
     object-fit: contain;
+    animation: loaderLogoPulse 1.8s ease-in-out infinite;
+}
+
+.loader-skip-btn {
+    position: absolute;
+    bottom: 2rem;
+    padding: 0.5rem 1.25rem;
+    font-size: 0.75rem;
+    font-family: var(--font-heading);
+    color: var(--gold-primary);
+    background: rgba(13, 26, 51, 0.8);
+    border: 1px solid rgba(212, 175, 55, 0.4);
+    border-radius: 20px;
+    cursor: pointer;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    z-index: 2;
+    transition: var(--transition-fast);
+    touch-action: manipulation;
+}
+
+.loader-skip-btn:active {
+    transform: scale(0.96);
+    background: rgba(212, 175, 55, 0.2);
+}
+
+@keyframes loaderLogoPulse {
+    0%, 100% {
+        opacity: 0.9;
+        transform: scale(1);
+    }
+    50% {
+        opacity: 1;
+        transform: scale(1.03);
+    }
+}
+
+/* -------------------------------------------------------------
+ * Low-End Mobile & Touch Performance Overrides
+ * ------------------------------------------------------------- */
+@media (max-width: 768px), (pointer: coarse) {
+    .loader {
+        /* Bypasses expensive shader mask rendering completely */
+        -webkit-mask-image: none !important;
+        mask-image: none !important;
+        background: radial-gradient(circle at center, #0a1426 0%, #040b16 100%);
+    }
+
+    /* Shut off video decoding on mobile to save GPU/RAM */
+    .loader-video {
+        display: none !important;
+    }
+
+    .loader-content {
+        transform: none !important;
+        opacity: 1 !important;
+        animation: none !important;
+    }
+
+    .loader-logo-img {
+        width: 260px;
+        max-width: 75vw;
+    }
+
+    .loader-skip-btn {
+        bottom: 1.5rem;
+        padding: 0.45rem 1.1rem;
+        font-size: 0.7rem;
+    }
 }

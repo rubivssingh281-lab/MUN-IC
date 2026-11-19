@@ -2,6 +2,7 @@
  * Main Application Orchestrator
  * SAARTHI Model United Nations 2026
  */
+import { DeviceOptimizer } from './src/core/utils/DeviceOptimizer.js';
 import { SmoothScroller } from './src/core/scroller/SmoothScroller.js';
 import { ScrollAnimator } from './src/core/animations/ScrollAnimator.js';
 import { Navbar } from './src/components/navbar/Navbar.js';

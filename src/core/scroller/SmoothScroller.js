@@ -1,7 +1,12 @@
 /**
  * SmoothScroller Class
  * Wrapper around Lenis library providing start/stop/scrollTo controls
+ *
+ * Automatically delegates to browser-native momentum scrolling on mobile /
+ * touch / low-power hardware to avoid 60fps rAF CPU thread thrashing.
  */
+import { DeviceOptimizer } from '../utils/DeviceOptimizer.js';
+
 export class SmoothScroller {
     /**
      * @param {Object} options
@@ -22,29 +27,46 @@ export class SmoothScroller {
 
         this.lenis = null;
         this.rafId = null;
+        this.isMobileOptimized = DeviceOptimizer.shouldBypassVirtualScroll();
         this.init();
     }
 
     init() {
+        // On touch / low-power mobile devices, use 100% native composited scrolling
+        if (this.isMobileOptimized) {
+            document.documentElement.style.scrollBehavior = 'smooth';
+            return;
+        }
+
         if (typeof window.Lenis === 'function') {
             this.lenis = new window.Lenis(this.options);
 
             const raf = (time) => {
-                this.lenis.raf(time);
-                this.rafId = requestAnimationFrame(raf);
+                if (this.lenis) {
+                    this.lenis.raf(time);
+                    this.rafId = requestAnimationFrame(raf);
+                }
             };
             this.rafId = requestAnimationFrame(raf);
         } else {
-            console.warn('[SmoothScroller] Lenis library not detected on window.');
+            document.documentElement.style.scrollBehavior = 'smooth';
         }
     }
 
     start() {
-        if (this.lenis) this.lenis.start();
+        if (this.lenis) {
+            this.lenis.start();
+        } else {
+            document.body.style.overflow = '';
+        }
     }
 
     stop() {
-        if (this.lenis) this.lenis.stop();
+        if (this.lenis) {
+            this.lenis.stop();
+        } else {
+            document.body.style.overflow = 'hidden';
+        }
     }
 
     scrollTo(target, options = {}) {
@@ -59,7 +81,15 @@ export class SmoothScroller {
     }
 
     destroy() {
-        if (this.rafId) cancelAnimationFrame(this.rafId);
-        if (this.lenis) this.lenis.destroy();
+        if (this.rafId) {
+            cancelAnimationFrame(this.rafId);
+            this.rafId = null;
+        }
+        if (this.lenis) {
+            this.lenis.destroy();
+            this.lenis = null;
+        }
+        document.documentElement.style.scrollBehavior = '';
+        document.body.style.overflow = '';
     }
 }

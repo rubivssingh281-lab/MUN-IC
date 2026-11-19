@@ -1,7 +1,12 @@
 /**
  * ScrollAnimator Class
  * Uses IntersectionObserver to trigger smooth entry animations on viewport entrance
+ *
+ * Automatically bypasses heavy observer logic on low-power devices and honors
+ * reduced motion preferences.
  */
+import { DeviceOptimizer } from '../utils/DeviceOptimizer.js';
+
 export class ScrollAnimator {
     /**
      * @param {string} selector - Selector for animatable elements
@@ -11,8 +16,8 @@ export class ScrollAnimator {
         this.selector = selector;
         this.options = {
             root: null,
-            rootMargin: '0px',
-            threshold: 0.1,
+            rootMargin: '40px 0px',
+            threshold: 0.05,
             ...options
         };
 
@@ -21,9 +26,14 @@ export class ScrollAnimator {
     }
 
     init() {
-        if (!('IntersectionObserver' in window)) {
-            // Fallback: make all elements immediately visible if unsupported
-            document.querySelectorAll(this.selector).forEach(el => el.classList.add('visible'));
+        const elements = document.querySelectorAll(this.selector);
+        if (!elements.length) return;
+
+        // On low-power hardware or reduced motion, reveal elements immediately
+        if (DeviceOptimizer.state.isLowPower || DeviceOptimizer.state.reducedMotion || !('IntersectionObserver' in window)) {
+            elements.forEach(el => {
+                el.classList.add('visible');
+            });
             return;
         }
 
@@ -36,11 +46,6 @@ export class ScrollAnimator {
             });
         }, this.options);
 
-        this.observeElements();
-    }
-
-    observeElements() {
-        const elements = document.querySelectorAll(this.selector);
         elements.forEach(el => {
             el.classList.add('fade-up');
             this.observer.observe(el);
@@ -49,7 +54,13 @@ export class ScrollAnimator {
 
     refresh() {
         if (this.observer) {
-            this.observeElements();
+            const elements = document.querySelectorAll(this.selector);
+            elements.forEach(el => {
+                if (!el.classList.contains('visible')) {
+                    el.classList.add('fade-up');
+                    this.observer.observe(el);
+                }
+            });
         }
     }
 

@@ -7,8 +7,9 @@ export const AppConfig = {
     theme: 'Diplomacy, Dialogue, and Dharma',
     year: 2026,
     loader: {
-        autoDismissDelay: 5500,
-        fadeOutDuration: 1200
+        autoDismissDelay: 2800,
+        autoDismissDelayMobile: 850,
+        fadeOutDuration: 350
     },
     scroller: {
         duration: 1.2,
