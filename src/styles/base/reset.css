@@ -9,7 +9,7 @@
 }
 
 html {
-    scroll-behavior: initial; /* Managed by Lenis SmoothScroller */
+    scroll-behavior: smooth;
     -webkit-text-size-adjust: 100%;
 }
 
@@ -20,6 +20,8 @@ body {
     line-height: 1.6;
     overflow-x: hidden;
     min-height: 100vh;
+    -webkit-font-smoothing: antialiased;
+    text-rendering: optimizeSpeed;
 }
 
 body.loading-active {
@@ -30,6 +32,11 @@ img, video {
     max-width: 100%;
     height: auto;
     display: block;
+}
+
+/* Eliminate 300ms mobile click delay & avoid touch action stalls */
+a, button, input, select, textarea, .btn {
+    touch-action: manipulation;
 }
 
 button, input, select, textarea {

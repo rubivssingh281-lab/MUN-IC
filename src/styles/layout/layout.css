@@ -76,6 +76,10 @@ section {
 }
 
 @media (max-width: 768px) {
+    .pattern-bg {
+        background-attachment: scroll !important;
+    }
+
     .container {
         padding: 0 1rem;
     }

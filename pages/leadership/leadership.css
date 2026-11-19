@@ -2,7 +2,7 @@
  * Leadership Page Specific Styles
  * SAARTHI Model United Nations 2026
  */
-@import '../../src/styles/main.css';
+@import '../../styles.css';
 
 .secretariat-intro {
     max-width: 800px;

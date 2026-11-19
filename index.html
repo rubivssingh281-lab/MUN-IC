@@ -21,10 +21,10 @@
         rel="stylesheet">
 
     <!-- Phosphor Icons for UI elements -->
-    <script src="https://unpkg.com/@phosphor-icons/web"></script>
+    <script defer src="https://unpkg.com/@phosphor-icons/web"></script>
 
     <!-- Lenis Smooth Scroll -->
-    <script src="https://unpkg.com/@studio-freight/lenis@1.0.42/dist/lenis.min.js"></script>
+    <script defer src="https://unpkg.com/@studio-freight/lenis@1.0.42/dist/lenis.min.js"></script>
 
     <link rel="stylesheet" href="styles.css">
 </head>
@@ -33,13 +33,14 @@
 
     <!-- Loading Screen -->
     <div id="loader" class="loader">
-        <video autoplay muted loop playsinline class="loader-video">
+        <video autoplay muted loop playsinline preload="none" class="loader-video">
             <source src="assets/loadingVID.mp4" type="video/mp4">
         </video>
         <div class="loader-overlay"></div>
         <div class="loader-content">
-            <img src="assets/logo.png" alt="SAARTHI Logo" class="loader-logo-img">
+            <img src="assets/logo.png" alt="SAARTHI Logo" class="loader-logo-img" width="420" height="150" fetchpriority="high">
         </div>
+        <button class="loader-skip-btn" id="loaderSkipBtn" aria-label="Skip intro animation">Skip Intro &rarr;</button>
     </div>
 
     <!-- Navigation -->
@@ -93,7 +94,7 @@
                     </div>
                 </div>
                 <div class="hero-image-wrapper">
-                    <img src="assets/hero.jpg" alt="Flute and Peacock Feather" class="hero-image">
+                    <img src="assets/hero.jpg" alt="Flute and Peacock Feather" class="hero-image" width="500" height="500" fetchpriority="high" decoding="async">
                     <div class="hero-glow"></div>
                 </div>
             </div>
@@ -169,7 +170,7 @@
                     <!-- Profile 1: Founder -->
                     <div class="profile-card">
                         <div class="profile-img">
-                            <img src="assets/profile.jpg" alt="Founder">
+                            <img src="assets/profile.jpg" alt="Founder" loading="lazy" decoding="async" width="145" height="145">
                         </div>
                         <h4 class="text-gold">Founder</h4>
                         <p class="profile-role">IPSHITA CHAUDHARY</p>
@@ -180,7 +181,7 @@
                     <div class="profile-card highlighted-profile">
                         <div class="profile-badge">Executive Head</div>
                         <div class="profile-img">
-                            <img src="assets/profile.jpg" alt="Secretary-General">
+                            <img src="assets/profile.jpg" alt="Secretary-General" loading="lazy" decoding="async" width="145" height="145">
                         </div>
                         <h4 class="text-gold">Secretary-General</h4>
                         <p class="profile-role">Secretary-General</p>
@@ -190,7 +191,7 @@
                     <!-- Profile 3: Chief Advisor -->
                     <div class="profile-card">
                         <div class="profile-img">
-                            <img src="assets/profile.jpg" alt="Chief Advisor">
+                            <img src="assets/profile.jpg" alt="Chief Advisor" loading="lazy" decoding="async" width="145" height="145">
                         </div>
                         <h4 class="text-gold">Chief Advisor</h4>
                         <p class="profile-role">Chief Advisor</p>

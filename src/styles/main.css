@@ -1,27 +1,8 @@
 /**
  * Main Stylesheet Aggregator
  * SAARTHI Model United Nations 2026
+ *
+ * Points directly to the consolidated production stylesheet (styles.css)
+ * to avoid cascading network waterfall requests.
  */
-
-/* 1. Design Tokens & Base */
-@import './tokens/variables.css';
-@import './base/reset.css';
-@import './base/typography.css';
-@import './layout/grid.css';
-@import './layout/layout.css';
-
-/* 2. Core Libraries & Animations */
-@import '../core/scroller/scroller.css';
-@import '../core/animations/animations.css';
-
-/* 3. Components Architecture */
-@import '../components/navbar/navbar.css';
-@import '../components/hero/hero.css';
-@import '../components/loader/loader.css';
-@import '../components/committee-card/committee-card.css';
-@import '../components/profile-card/profile-card.css';
-@import '../components/resource-card/resource-card.css';
-@import '../components/modal/modal.css';
-@import '../components/toast/toast.css';
-@import '../components/registration-form/registration-form.css';
-@import '../components/footer/footer.css';
+@import '../../styles.css';

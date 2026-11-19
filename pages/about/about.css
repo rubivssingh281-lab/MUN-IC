@@ -2,7 +2,7 @@
  * About Page Specific Styles
  * SAARTHI Model United Nations 2026
  */
-@import '../../src/styles/main.css';
+@import '../../styles.css';
 
 .about-cards {
     display: grid;
@@ -96,6 +96,12 @@
 }
 
 @media (max-width: 768px) {
+    .about-quote-box {
+        backdrop-filter: none !important;
+        -webkit-backdrop-filter: none !important;
+        background: #0d1a33;
+    }
+
     .about-cards {
         grid-template-columns: repeat(2, 1fr);
         gap: 0.85rem;
